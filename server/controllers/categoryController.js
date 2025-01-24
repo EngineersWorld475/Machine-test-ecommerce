@@ -30,6 +30,7 @@ export const addCategory = async (req, res, next) => {
 export const getCategories = async (req, res, next) => {
     try {
     const categories = await Category.find();
+    console.log('...categories', categories)
   
     res.status(200).json({
       success: true,
