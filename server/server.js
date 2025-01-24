@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth/authRoutes.js';
 import categoryRoutes from './routes/category/category.js'
+import subCategoryRoutes from './routes/sub-category/subcategory.js'
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/category', categoryRoutes)
+app.use('/api/sub-category', subCategoryRoutes)
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -42,7 +44,6 @@ const connectDB = async () => {
 };
 connectDB();
 
-// app.use('/api/auth', authRoutes);
-
+s
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
