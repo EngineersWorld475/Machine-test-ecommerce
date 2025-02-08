@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4;
+}
+form {
+    margin-top: 30px;
+}
+.form_container {
+    display: grid;
+    width: full;
+}
+.form_label {
+    margin-bottom: 1;
+}
+.signup_button_container {
+    margin-top: 3px;
+    width: full;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: full;
+}
+.signup_button_container button {
+    width: 200px;
+    height: 40px;
+    background: #EDA415;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+    color: #FFFF;
+}
+.form_input {
+    width: 300px;
+    height: 30px;
+    color: #9A9A9A;
+    padding-left: 10px;
+    margin-top: 10px;
+    background-color:#F4F8F5;
+    border: none;
+    outline: none;
+}
