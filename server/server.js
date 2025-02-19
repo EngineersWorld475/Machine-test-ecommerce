@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-// import authRoutes from './routes/authRoutes.js';
+import authRoutes from './routes/auth/authRoutes.js';
 
 dotenv.config();
 
@@ -10,6 +10,17 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+
+// Routes
+app.use('/api/auth', authRoutes);
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
+  res.status(status).json({ error: { message } });
+});
 
 const connectDB = async () => {
   try {
