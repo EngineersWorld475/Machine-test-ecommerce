@@ -36,7 +36,6 @@ export const registerUser = async (req, res, next) => {
 
 export const loginUser = async (req, res, next) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email });
     if (!user) return next(createError(404, 'Invalid email or password'));
@@ -45,8 +44,7 @@ export const loginUser = async (req, res, next) => {
     if (!isMatch) return next(createError(400, 'Invalid email or password'));
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
-
-    res.status(200).json({ message: 'Login successful', token });
+    res.status(200).json({ message: 'Login successful', user, token });
   } catch (err) {
     next(err);
   }
