@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth/authRoutes.js';
+import categoryRoutes from './routes/category/category.js'
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/category', categoryRoutes)
 
 // Global Error Handler
 app.use((err, req, res, next) => {

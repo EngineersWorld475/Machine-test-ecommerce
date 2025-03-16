@@ -20,7 +20,6 @@ const SignupPage = () => {
 
     try {
       const {data} = await api.post('/api/auth/register', formData); 
-      console.log('Registration successful:', data);
       setStatus({success: true, error: ''});
       setFormData(initialState);
       navigate('/auth/login')
